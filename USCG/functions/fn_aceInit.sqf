@@ -15,7 +15,7 @@ _actionInfo = [
 		private _stretcherDetached = _target getVariable ["stretcherDetached", false];
 		private _hookDeployed = _target getVariable ["hookDeployed", false];
 
-		(!_stretcherDetached) && {_stretcherDeployed}
+		(_stretcherDeployed)
 	}
 ];
 
@@ -29,8 +29,22 @@ _actionInfo = [
 	// Statement <CODE>
 	{
 		params ["_target", "_player", "_params"];
-		private _stretcher = _target getVariable ["stretcher", objNull];
-		[ _target, _stretcher, [0, 0, 0.05] ] call uscg_mod_fnc_attachStretcher;
+		// not needed for now // private _stretcher = _target getVariable ["stretcher", objNull];
+		private _stretcher = objNull;
+
+		if (_stretcher isEqualTo objNull) exitWith {
+			diag_log "Attach Stretcher: Hook wasn't deployed with stretcher. looking for the nearest stretcher";
+			
+			private _stretcher = nearestObject [_target, "USCG_Stretcher"];
+
+			_target setVariable ["stretcher", _stretcher, true];
+
+			_target setVariable ["stretcherDeployed", true, true];
+			
+			if (_target distance _stretcher <= 2) exitWith {
+				[ _target, _stretcher, [0, 0, 0.05] ] call uscg_mod_fnc_attachStretcher;
+			};
+		};
 	},
 	// Condition <CODE>
 	{ 
@@ -41,7 +55,7 @@ _actionInfo = [
 
 		private _stretcher = _target getVariable ["stretcher", objNull];
 
-		(_stretcherDetached) && {_stretcherDeployed} && {_target distance _stretcher <= 2}
+		(!_stretcherDeployed)
 	}
 ];
 

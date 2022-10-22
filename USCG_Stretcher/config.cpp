@@ -3,7 +3,7 @@ class CfgPatches
 	class USCG_Stretcher
 	{
 		units[] = {"USCG_Stretcher"};
-		weapons[] = {};
+		weapons[] = {"USCG_Stretcher_Item"};
 		requiredVersion = 0.1;
 		requiredAddons[] = {"A3_Boat_F"};
 	};
@@ -99,6 +99,22 @@ class cfgVehicles
 		slingLoadCargoMemoryPoints[] = {"SlingLoadCargo1","SlingLoadCargo2","SlingLoadCargo3","SlingLoadCargo4", "SlingLoadCargo5"};
 	};
 	*/
+  	class Man;
+  	class CAManBase : Man {
+		class ACE_SelfActions {
+			class ACE_Equipment {
+				class USCG_UnfoldStretcher {
+					displayName = "Unfold USCG Stretcher";
+					condition = "'USCG_Backpack_Rescue_Pack' in backpack _player && _player getVariable ['canUnfoldStretcher',true]";
+					exceptions[] = {"isNotSwimming", "isNotInside", "isNotSitting"};
+					statement = "[_player, 'USCG_Stretcher', 'USCG_Stretcher_Item'] call uscg_mod_fnc_unfoldStretcher";
+					showDisabled = 0;
+					icon = "USCG_Stretcher\UI\stretcher_ca.paa";
+				};
+			};
+    	};
+	};
+
 	class Tank_F;
 	class USCG_Stretcher: Tank_F 
 	{
@@ -163,5 +179,18 @@ class cfgVehicles
 		class DestructionEffects {};
 		class TextureSources {};
 		class Turrets {};
+	};
+
+	class vtx_stretcher_item; // requires hatchet h60 pack (the helicopters)
+	class USCG_Stretcher_Item : vtx_stretcher_item
+	{
+		author = "Silence";
+		displayName = "Stretcher (USCG)";
+		class TransportItems {
+			class _xx_uscg_stretcher_item {
+				count = 1;
+				name = "uscg_stretcher_item";
+			};
+		};
 	};
 };

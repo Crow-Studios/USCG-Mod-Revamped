@@ -1,6 +1,6 @@
 params ["_vehicle", "_vehicleLoad"];
 
-if (_vehicle distance _vehicleLoad >= 10) exitWith {};
+if (_vehicle distance _vehicleLoad >= 6) exitWith {};
 
 hint str _vehicle;
 
@@ -27,8 +27,8 @@ hint str _vehicle;
 
         private _fnc_disableCarry = {
             params ["_object"];
-            [_object, false, [0,1.5,0.5], 0, true] call ace_dragging_fnc_setDraggable;
-            [_object, false, [0,1.5,0.5], 0, true] call ace_dragging_fnc_setCarryable;
+            [_object, false, [0,1.5,0.5], 0, true] remoteExec ["ace_dragging_fnc_setDraggable"];
+            [_object, false, [0,1.5,0.5], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
         };
 
         [_vehicleLoad] call _fnc_disableCarry;

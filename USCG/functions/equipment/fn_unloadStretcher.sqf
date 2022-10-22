@@ -19,8 +19,8 @@ _vehicleLoad setVariable ["stretcherLoaded", false, true];
 
 		private _fnc_makeCarry = {
 			params ["_object"];
-			[_object, true, [0,1.5,0.5], 0, true] call ace_dragging_fnc_setDraggable;
-			[_object, true, [0,1.5,0.5], 0, true] call ace_dragging_fnc_setCarryable;
+			[_object, true, [0,1.5,0.5], 0, true] remoteExec ["ace_dragging_fnc_setDraggable"];
+			[_object, true, [0,1.5,0.5], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
 		};
 
 		[_vehicleLoad] call _fnc_makeCarry;

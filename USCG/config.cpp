@@ -160,6 +160,12 @@ class CfgFunctions
 				postInit=0;
 			};
 		// equipment
+			class unfoldStretcher 
+			{
+				file="\USCG\functions\equipment\fn_unfoldStretcher.sqf";
+				postInit=0;
+			};
+		// equipment
 			class onStretcherEnter 
 			{
 				file="\USCG\functions\equipment\fn_onStretcherEnter.sqf";
@@ -255,14 +261,23 @@ class cfgVehicles
 		{
 			class interaction
 			{
+				class deployHookWithStretcher
+				{
+					condition = "!([hook] call uscg_mod_fnc_hookDeployed)";
+					positionType = "coordinates";
+					position[] = {1,2.03228,0.269152};
+					label = "Deploy Hoist + Stretcher";
+					radius = 0.2;
+					buttonDown = "[vehicle player] call uscg_mod_fnc_deployStretcher";
+				};
 				class deployHook
 				{
 					condition = "!([hook] call uscg_mod_fnc_hookDeployed)";
 					positionType = "coordinates";
 					position[] = {1.3946,2.03228,0.269152};
 					label = "Deploy Hoist";
-					radius = 0.3;
-					buttonDown = "[vehicle player] call uscg_mod_fnc_deployStretcher";
+					radius = 0.2;
+					buttonDown = "[vehicle player] call uscg_mod_fnc_deployHook";
 				};
 				class getOutDiver
 				{
