@@ -171,6 +171,12 @@ class CfgFunctions
 				file="\USCG\functions\equipment\fn_onStretcherEnter.sqf";
 				postInit=0;
 			};
+		// equipment
+			class canMoveToHoist 
+			{
+				file="\USCG\functions\equipment\fn_canMoveToHoist.sqf";
+				postInit=0;
+			};
 		// hatchet
 			class debugStuff
 			{
@@ -185,6 +191,7 @@ class CfgFunctions
 #include "\USCG\dialogs\defines.hpp"
 #include "\USCG\dialogs\dialogs.hpp"
 
+/*
 class Extended_Init_EventHandlers {
     class vtx_H60_base {
 		class uscg_h60_init {
@@ -192,6 +199,7 @@ class Extended_Init_EventHandlers {
 		};
     };
 };
+*/ // Incase you didn't notice, I only work on this mod in particular when i'm sleep deprived. I do not know why!
 
 class cfgVehicles 
 {
@@ -309,7 +317,7 @@ class cfgVehicles
 				};
 				class transferToBasket
 				{
-					condition = "ropeLength (ropes vehicle player select 0) <= 3";
+					condition = "[vehicle player] call uscg_mod_fnc_canMoveToHoist";
 					positionType = "coordinates";
 					position[] = {1.66, 1.585,-0.3};
 					label = "Move Onto Hoist";

@@ -12,10 +12,10 @@ _actionInfo = [
 		params ["_target", "_player", "_params"];
 
 		private _stretcherDeployed = _target getVariable ["stretcherDeployed", false];
-		private _stretcherDetached = _target getVariable ["stretcherDetached", false];
+		private _stretcherAttached = _target getVariable ["stretcherAttached", false];
 		private _hookDeployed = _target getVariable ["hookDeployed", false];
 
-		(_stretcherDeployed)
+		(_stretcherAttached)
 	}
 ];
 
@@ -30,20 +30,16 @@ _actionInfo = [
 	{
 		params ["_target", "_player", "_params"];
 		// not needed for now // private _stretcher = _target getVariable ["stretcher", objNull];
-		private _stretcher = objNull;
+		diag_log "Attach Stretcher: Hook wasn't deployed with stretcher. looking for the nearest stretcher";
+		
+		private _stretcher = nearestObject [_target, "USCG_Stretcher"];
 
-		if (_stretcher isEqualTo objNull) exitWith {
-			diag_log "Attach Stretcher: Hook wasn't deployed with stretcher. looking for the nearest stretcher";
-			
-			private _stretcher = nearestObject [_target, "USCG_Stretcher"];
+		if (_stretcher isEqualTo objNull) exitWith {};
 
-			_target setVariable ["stretcher", _stretcher, true];
-
-			_target setVariable ["stretcherDeployed", true, true];
-			
-			if (_target distance _stretcher <= 2) exitWith {
-				[ _target, _stretcher, [0, 0, 0.05] ] call uscg_mod_fnc_attachStretcher;
-			};
+		_target setVariable ["stretcher", _stretcher, true];
+		
+		if (_target distance _stretcher <= 2) exitWith {
+			[ _target, _stretcher, [0, 0, 0.05] ] call uscg_mod_fnc_attachStretcher;
 		};
 	},
 	// Condition <CODE>
@@ -51,11 +47,11 @@ _actionInfo = [
 		params ["_target", "_player", "_params"];
 
 		private _stretcherDeployed = _target getVariable ["stretcherDeployed", false];
-		private _stretcherDetached = _target getVariable ["stretcherDetached", false];
+		private _stretcherAttached = _target getVariable ["stretcherAttached", false];
 
 		private _stretcher = _target getVariable ["stretcher", objNull];
 
-		(!_stretcherDeployed)
+		(!_stretcherAttached)
 	}
 ];
 

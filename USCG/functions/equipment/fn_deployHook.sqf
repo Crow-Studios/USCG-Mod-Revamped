@@ -19,6 +19,7 @@ hook setPos (_vehicle modelToWorld [3,2,-1]);
 
 private _rope = ropeCreate [_vehicle, [1.405, 2.03, 0.45], hook, [0,0,0.2], 3];
 
+_vehicle setVariable ["hookDeployed", true, true]; // add it to helicopter too
 hook setVariable ["hookDeployed", true, true];
 hook setVariable ["helicopter", _vehicle, true];
 

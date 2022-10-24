@@ -30,5 +30,6 @@ if (_vehicle getVariable ["stretcherLoaded", false]) then {
     private _tempRope = ropeCreate [hook, [0, 0, 0.05], _stretcher, "SlingLoadCargo4", 1, [], ["RopeEnd", [0,0,0]]];
 
     hook setVariable ["stretcherDeployed", true, true];
+    hook setVariable ["stretcherAttached", true, true];
     hook setVariable ["stretcher", _stretcher, true];
 };

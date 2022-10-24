@@ -9,6 +9,8 @@ class CfgPatches
 	};
 };
 
+#define AUTHOR "USCG Dev Team"
+
 class CfgMovesBasic 
 {
 	class DefaultDie;
@@ -60,6 +62,28 @@ class Extended_Init_EventHandlers {
     };
 };
 
+class CfgWeapons
+{
+	class CBA_MiscItem;
+	class CBA_MiscItem_ItemInfo;
+	class USCG_Stretcher_Item: CBA_MiscItem
+	{
+		displayName = "Stretcher (USCG)";
+		scope=2;
+		author=AUTHOR;
+		picture = "\USCG_Stretcher\UI\stretcher_ca.paa";
+		model = "\A3\Props_F_Orange\Humanitarian\Camps\Stretcher_01_folded_F.p3d";
+		icon = "iconObject_circle";
+		descriptionShort = "Deploy this using the ace menu, in equipment.";
+		class ItemInfo: CBA_MiscItem_ItemInfo
+		{
+			mass = 50;
+			scope = 0;
+			type = 302;
+		};
+	};
+};
+
 class cfgVehicles 
 {
 	/*
@@ -105,7 +129,7 @@ class cfgVehicles
 			class ACE_Equipment {
 				class USCG_UnfoldStretcher {
 					displayName = "Unfold USCG Stretcher";
-					condition = "'USCG_Backpack_Rescue_Pack' in backpack _player && _player getVariable ['canUnfoldStretcher',true]";
+					condition = "'USCG_Stretcher_Item' in items _player";
 					exceptions[] = {"isNotSwimming", "isNotInside", "isNotSitting"};
 					statement = "[_player, 'USCG_Stretcher', 'USCG_Stretcher_Item'] call uscg_mod_fnc_unfoldStretcher";
 					showDisabled = 0;
@@ -179,18 +203,5 @@ class cfgVehicles
 		class DestructionEffects {};
 		class TextureSources {};
 		class Turrets {};
-	};
-
-	class vtx_stretcher_item; // requires hatchet h60 pack (the helicopters)
-	class USCG_Stretcher_Item : vtx_stretcher_item
-	{
-		author = "Silence";
-		displayName = "Stretcher (USCG)";
-		class TransportItems {
-			class _xx_uscg_stretcher_item {
-				count = 1;
-				name = "uscg_stretcher_item";
-			};
-		};
 	};
 };

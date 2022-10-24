@@ -44,4 +44,4 @@ def generate_classes(file_name):
 
 generate_classes(sys.argv[1])
 
-# Made by silence and crimzon, really quickly thrown together because of the amount of functions needed in cfgFunctions
+# Made by silence and crimzon, really quickly thrown together because it was a tiny python project to learn stuff
