@@ -9,17 +9,6 @@ class CfgPatches
 	};
 };
 
-class cfgFactionClasses 
-{ 
-    class USCG
-    { 
-        displayName = "USCG"; 
-        priority = 3;
-        side = 1; // Opfor = 0, Blufor = 1, Indep = 2. 
-        icon = "\USCG\USCG_Image.paa";
-    };
-};
-
 class CfgFunctions
 {
 	class USCG_mod
@@ -38,6 +27,18 @@ class CfgFunctions
 			{
 				file="\USCG\functions\fn_deleteHook.sqf";
 				postInit=0;
+			};
+		// functions
+			class client_addItemActions
+			{
+				file="\USCG\functions\fn_client_addItemActions.sqf";
+				postInit=0;
+			};
+		// functions
+			class client_itemActions 
+			{
+				file="\USCG\functions\fn_client_itemActions.sqf";
+				postInit=1;
 			};
 		// functions
 			class getDataReadings 
@@ -69,6 +70,42 @@ class CfgFunctions
 				file="\USCG\functions\fn_treatStretcherPatient.sqf";
 				postInit=0;
 			};
+		// ace
+			class ace_attachStretcher 
+			{
+				file="\USCG\functions\ace\fn_ace_attachStretcher.sqf";
+				postInit=0;
+			};
+		// ace
+			class ace_detachStretcher 
+			{
+				file="\USCG\functions\ace\fn_ace_detachStretcher.sqf";
+				postInit=0;
+			};
+		// ace
+			class ace_loadStretcher 
+			{
+				file="\USCG\functions\ace\fn_ace_loadStretcher.sqf";
+				postInit=0;
+			};
+		// ace
+			class ace_makeCarryable 
+			{
+				file="\USCG\functions\ace\fn_ace_makeCarryable.sqf";
+				postInit=0;
+			};
+		// ace
+			class ace_treatPatientOnStretcher 
+			{
+				file="\USCG\functions\ace\fn_ace_treatPatientOnStretcher.sqf";
+				postInit=0;
+			};
+		// ace
+			class ace_unloadStretcher 
+			{
+				file="\USCG\functions\ace\fn_ace_unloadStretcher.sqf";
+				postInit=0;
+			};
 		// equipment
 			class attachStretcher 
 			{
@@ -79,6 +116,12 @@ class CfgFunctions
 			class basketDeployed 
 			{
 				file="\USCG\functions\equipment\fn_basketDeployed.sqf";
+				postInit=0;
+			};
+		// equipment
+			class canMoveToHoist 
+			{
+				file="\USCG\functions\equipment\fn_canMoveToHoist.sqf";
 				postInit=0;
 			};
 		// equipment
@@ -118,6 +161,12 @@ class CfgFunctions
 				postInit=0;
 			};
 		// equipment
+			class loadStretcher 
+			{
+				file="\USCG\functions\equipment\fn_loadStretcher.sqf";
+				postInit=0;
+			};
+		// equipment
 			class moveToHelicopter 
 			{
 				file="\USCG\functions\equipment\fn_moveToHelicopter.sqf";
@@ -127,6 +176,12 @@ class CfgFunctions
 			class moveToHoist 
 			{
 				file="\USCG\functions\equipment\fn_moveToHoist.sqf";
+				postInit=0;
+			};
+		// equipment
+			class onStretcherEnter 
+			{
+				file="\USCG\functions\equipment\fn_onStretcherEnter.sqf";
 				postInit=0;
 			};
 		// equipment
@@ -148,33 +203,15 @@ class CfgFunctions
 				postInit=0;
 			};
 		// equipment
-			class loadStretcher
-			{
-				file="\USCG\functions\equipment\fn_loadStretcher.sqf";
-				postInit=0;
-			};
-		// equipment
-			class unloadStretcher 
-			{
-				file="\USCG\functions\equipment\fn_unloadStretcher.sqf";
-				postInit=0;
-			};
-		// equipment
 			class unfoldStretcher 
 			{
 				file="\USCG\functions\equipment\fn_unfoldStretcher.sqf";
 				postInit=0;
 			};
 		// equipment
-			class onStretcherEnter 
+			class unloadStretcher 
 			{
-				file="\USCG\functions\equipment\fn_onStretcherEnter.sqf";
-				postInit=0;
-			};
-		// equipment
-			class canMoveToHoist 
-			{
-				file="\USCG\functions\equipment\fn_canMoveToHoist.sqf";
+				file="\USCG\functions\equipment\fn_unloadStretcher.sqf";
 				postInit=0;
 			};
 		// hatchet
@@ -187,9 +224,6 @@ class CfgFunctions
 		};
 	};
 };
-
-#include "\USCG\dialogs\defines.hpp"
-#include "\USCG\dialogs\dialogs.hpp"
 
 /*
 class Extended_Init_EventHandlers {
@@ -213,7 +247,7 @@ class cfgVehicles
 				class readDataCoPilot
 				{
 					clickSound = "vxf_Switch_Sound";
-					condition = "[hook] call uscg_mod_fnc_hookDeployed";
+					condition = "[vehicle player] call uscg_mod_fnc_hookDeployed";
 					positionType = "coordinates";
 					position[] = {-0.730867,5.09079,-0.491695};
 					label = "Read Hoist Data";
@@ -246,7 +280,7 @@ class cfgVehicles
 				};
 				class setLengthPilot
 				{
-					condition = "[hook] call uscg_mod_fnc_hookDeployed";
+					condition = "[vehicle player] call uscg_mod_fnc_hookDeployed";
 					positionType = "coordinates";
 					position[] = {0.719166,5.09165,-0.493864};
 					label = "Set Rope Length";
@@ -256,7 +290,7 @@ class cfgVehicles
 				class readDataPilot
 				{
 					clickSound = "vxf_Switch_Sound";
-					condition = "[hook] call uscg_mod_fnc_hookDeployed";
+					condition = "[vehicle player] call uscg_mod_fnc_hookDeployed";
 					positionType = "coordinates";
 					position[] = {0.720362,5.1483,-0.357264};
 					label = "Read Rescue Hoist Data";
@@ -271,7 +305,7 @@ class cfgVehicles
 			{
 				class deployHookWithStretcher
 				{
-					condition = "!([hook] call uscg_mod_fnc_hookDeployed)";
+					condition = "!([vehicle player] call uscg_mod_fnc_hookDeployed)";
 					positionType = "coordinates";
 					position[] = {1,2.03228,0.269152};
 					label = "Deploy Hoist + Stretcher";
@@ -280,7 +314,7 @@ class cfgVehicles
 				};
 				class deployHook
 				{
-					condition = "!([hook] call uscg_mod_fnc_hookDeployed)";
+					condition = "!([vehicle player] call uscg_mod_fnc_hookDeployed)";
 					positionType = "coordinates";
 					position[] = {1.3946,2.03228,0.269152};
 					label = "Deploy Hoist";
@@ -298,7 +332,7 @@ class cfgVehicles
 				};
 				class undeployHook
 				{
-					condition = "[hook] call uscg_mod_fnc_hookDeployed";
+					condition = "[vehicle player] call uscg_mod_fnc_hookDeployed";
 					positionType = "coordinates";
 					position[] = {1.3946,2.03228,0.269152};
 					//position[] = {1.43148,2.02815,0.46699};
@@ -308,7 +342,7 @@ class cfgVehicles
 				};
 				class changeRopeLength
 				{
-					condition = "[hook] call uscg_mod_fnc_hookDeployed";
+					condition = "[vehicle player] call uscg_mod_fnc_hookDeployed";
 					positionType = "coordinates";
 					position[] = {1.04544,2.62412,-0.248061};
 					label = "Set Rope Length";

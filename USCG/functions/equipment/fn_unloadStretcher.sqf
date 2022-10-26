@@ -1,7 +1,5 @@
 params ["_vehicle", "_vehicleLoad"];
 
-_vehicleLoad setVariable ["stretcherLoaded", false, true];
-
 [
     3,
     [_vehicle, _vehicleLoad],
@@ -24,6 +22,7 @@ _vehicleLoad setVariable ["stretcherLoaded", false, true];
 		};
 
 		[_vehicleLoad] call _fnc_makeCarry;
+		_vehicleLoad setVariable ["stretcherLoaded", false, true];
     },
     {
         titleText ["Unloading Failed!", "PLAIN"];

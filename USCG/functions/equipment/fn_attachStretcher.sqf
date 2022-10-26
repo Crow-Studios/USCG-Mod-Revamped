@@ -8,3 +8,5 @@ private _myRope = ropeCreate [_hook, _offset, _vehicle, "SlingLoadCargo4", 1, []
 _hook setVariable ["stretcherDeployed", false, true];
 
 _hook setVariable ["stretcherAttached", true, true];
+
+_hook setVariable ["stretcher", _vehicle, true];

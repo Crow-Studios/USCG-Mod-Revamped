@@ -11,10 +11,12 @@ if (_hookDeployed) exitWith { // hook always needs to be deployed to run the res
 
 	if (_stretcherDeployed) then {
 		deleteVehicle _stretcher;
+		_vehicle addItemCargo ["USCG_Stretcher_Item",1]; // add back to main vehicle cargo, is easier
 	};
 
 	if (_basketDeployed) then {
 		deleteVehicle _basket;
+		_vehicle addItemCargo ["USCG_Basket_Item",1]; // add back to main vehicle cargo, is easier
 	};
 
 	{
@@ -27,5 +29,6 @@ if (_hookDeployed) exitWith { // hook always needs to be deployed to run the res
 	} forEach ropes _vehicle;
 
 	_vehicle animateSource ['hoist_hook_hide', 0];
+	_vehicle setVariable ["hookDeployed", false, true];
 
 };
