@@ -1,7 +1,3 @@
-/*
-["lost_hope_static_item_apple", "Eat Apple", [], "", true, true, true, [], ""] call lost_hope_mod_fnc_addItemActions;
-*/
-
 params ["_classname", "_name", "_color", "_icon", "_conditionEnable", "_conditionShow", "_remove", "_param", "_function"];
 
 [
@@ -14,7 +10,7 @@ _icon, // icon path
 {
     params ["_unit", "_container", "_item", "_slot", "_params"]; // parameters
     
-    (_params select 2) spawn compile (_params select 3);
+    (_params select 2) remoteExec [(_params select 3)]; // I give up, compile stopped working after the shitty update
     // function here
 },
 _remove, // remove from inventory

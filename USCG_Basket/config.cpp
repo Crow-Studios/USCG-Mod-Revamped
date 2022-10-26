@@ -30,7 +30,7 @@ class CfgWeapons
 		displayName = "Rescue Basket";
 		scope=2;
 		author=AUTHOR;
-		picture = "\USCG_Stretcher\UI\stretcher_ca.paa";
+		picture = "\USCG_Basket\UI\basket_ca.paa";
 		model = "\A3\Props_F_Orange\Humanitarian\Camps\Stretcher_01_folded_F.p3d";
 		icon = "iconObject_circle";
 		descriptionShort = "Use this in a compatible helicopter.";
@@ -80,11 +80,11 @@ class cfgVehicles
 		hasGunner = 0;
 		hasCommander = 0;
 		// Change these paths
-		picture = "\USCG_Stretcher\UI\stretcher_ca.paa";
-		icon = "\USCG_Stretcher\UI\stretcher_ca.paa";
-		editorPreview = "\USCG_Stretcher\UI\stretcher_ca.paa";
+		picture = "\USCG_Basket\UI\basket_ca.paa";
+		icon = "\USCG_Basket\UI\basket_ca.paa";
+		editorPreview = "\USCG_Basket\UI\basket_ca.paa";
 		mapSize = 2;
-		mass = 300;
+		mass = 13;
 		maximumLoad = 0;
 		tf_isolatedAmount = 0;
 		maxCompression = 0;

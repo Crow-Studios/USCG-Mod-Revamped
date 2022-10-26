@@ -23,7 +23,13 @@ class CfgFunctions
 				postInit=1;
 			};
 		// functions
-			class deleteHook 
+			class cbaInit 
+			{
+				file="\USCG\functions\fn_cbaInit.sqf";
+				postInit=1;
+			};
+		// functions
+			class deleteHook
 			{
 				file="\USCG\functions\fn_deleteHook.sqf";
 				postInit=0;
@@ -38,7 +44,7 @@ class CfgFunctions
 			class client_itemActions 
 			{
 				file="\USCG\functions\fn_client_itemActions.sqf";
-				postInit=1;
+				postInit=0;
 			};
 		// functions
 			class getDataReadings 
@@ -80,6 +86,18 @@ class CfgFunctions
 			class ace_detachStretcher 
 			{
 				file="\USCG\functions\ace\fn_ace_detachStretcher.sqf";
+				postInit=0;
+			};
+		// cba
+			class cba_attachStretcher 
+			{
+				file="\USCG\functions\cba\fn_cba_attachStretcher.sqf";
+				postInit=0;
+			};
+		// cba
+			class cba_attachBasket
+			{
+				file="\USCG\functions\cba\fn_cba_attachBasket.sqf";
 				postInit=0;
 			};
 		// ace
@@ -238,7 +256,7 @@ class Extended_Init_EventHandlers {
 class cfgVehicles 
 {
 	class Heli_Transport_01_base_F;
-	class vtx_H60_base : Heli_Transport_01_base_F 
+	class vtx_H60_base : Heli_Transport_01_base_F
 	{
 		class vxf_copilot
 		{
@@ -303,6 +321,7 @@ class cfgVehicles
 		{
 			class interaction
 			{
+				/*
 				class deployHookWithStretcher
 				{
 					condition = "!([vehicle player] call uscg_mod_fnc_hookDeployed)";
@@ -312,6 +331,7 @@ class cfgVehicles
 					radius = 0.2;
 					buttonDown = "[vehicle player] call uscg_mod_fnc_deployStretcher";
 				};
+				*/
 				class deployHook
 				{
 					condition = "!([vehicle player] call uscg_mod_fnc_hookDeployed)";

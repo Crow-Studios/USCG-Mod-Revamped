@@ -70,7 +70,7 @@ class CfgWeapons
 		displayName = "Stokes Basket";
 		scope=2;
 		author=AUTHOR;
-		picture = "\USCG_Stretcher\UI\stretcher_ca.paa";
+		picture = "\USCG_Stretcher\UI\stokes_basket_ca.paa";
 		model = "\A3\Props_F_Orange\Humanitarian\Camps\Stretcher_01_folded_F.p3d";
 		icon = "iconObject_circle";
 		descriptionShort = "Deploy this using the ace menu, in equipment.";
@@ -147,7 +147,7 @@ class cfgVehicles
 		icon = "\USCG_Stretcher\UI\stretcher_ca.paa";
 		editorPreview = "\USCG_Stretcher\UI\stretcher_ca.paa";
 		mapSize = 2;
-		mass = 200;
+		mass = 15;
 		maximumLoad = 0;
 		tf_isolatedAmount = 0;
 		maxCompression = 0;
@@ -190,6 +190,9 @@ class cfgVehicles
 	{
 		displayName = "Stokes Basket";
 		model = "\USCG_Stretcher\stretcherv4";
-		mass = 125;
+		picture = "\USCG_Stretcher\UI\stokes_basket_ca.paa";
+		icon = "\USCG_Stretcher\UI\stokes_basket_ca.paa";
+		editorPreview = "\USCG_Stretcher\UI\stokes_basket_ca.paa";
+		mass = 11;
 	};
 };

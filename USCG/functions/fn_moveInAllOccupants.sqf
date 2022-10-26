@@ -23,7 +23,7 @@ if (_basketDeployed) then {
 
 //private _emptySpots = _vehicle emptyPositions "Cargo";
 private _crewCount = count _crews;
-private _spots = fullCrew [heli, "", true];
+private _spots = fullCrew [_vehicle, "", true];
 _emptySpots = [];
 
 {

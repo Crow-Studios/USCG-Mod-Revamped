@@ -22,7 +22,6 @@ params ["_unit", "_vehicle", "_item"];
         _vehicle setPos _pos;
         _vehicle setDir getDir _unit;
         _vehicle setPos (_vehicle modelToWorld [1,0.5,0]);
-        [_unit, "AinvPknlMstpSnonWnonDnon_medicEnd"] remoteExec ["playMove"];
     },
     {
         params ["_args"];

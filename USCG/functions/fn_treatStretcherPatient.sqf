@@ -5,7 +5,7 @@ _vehicle = vehicle _player;
 //if (! (_vehicle getCargoIndex _player in [8,9]) ) exitWith {};
 
 {
-  if ("Stretcher" in typeOf _x) exitWith {
+  if (typeOf _x in ["USCG_Stretcher", "vtx_stretcher_1", "USCG_Stokes_Basket"]) exitWith {
     VIV = _x;
   };
 } forEach attachedObjects _vehicle;
