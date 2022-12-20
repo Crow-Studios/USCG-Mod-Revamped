@@ -5,7 +5,7 @@ class CfgPatches
 		units[] = {"USCG_Stretcher", "USCG_Stokes_Basket"};
 		weapons[] = {"USCG_Stretcher_Item"};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Boat_F", "CBA_XEH"};
+		requiredAddons[] = {"A3_Data_F_AoW_Loadorder", "USCG_Common"};
 	};
 };
 
@@ -56,7 +56,7 @@ class CfgMovesMaleSdr: CfgMovesBasic
 class Extended_Init_EventHandlers {
     class USCG_Stretcher {
 		class uscg_stretcher_init {
-			init = "[(_this select 0)] call uscg_mod_fnc_onStretcherEnter";
+			init = "[(_this select 0)] call uscg_mod_fnc_onStretcherEnter; (_this select 0) setVariable [""ace_medical_medicClass"", 1]";
 		};
     };
 };
@@ -73,7 +73,7 @@ class CfgWeapons
 		picture = "\USCG_Stretcher\UI\stokes_basket_ca.paa";
 		model = "\A3\Props_F_Orange\Humanitarian\Camps\Stretcher_01_folded_F.p3d";
 		icon = "iconObject_circle";
-		descriptionShort = "Deploy this using the ace menu, in equipment.";
+		descriptionShort = "Deploy this using the ace menu, or if in a vehicle by double clicking on this item.";
 		class ItemInfo: CBA_MiscItem_ItemInfo
 		{
 			mass = 50;
@@ -104,26 +104,7 @@ class cfgVehicles
 	class Tank_F;
 	class USCG_Stretcher_Base : Tank_F
 	{
-		
-        class EventHandlers {
-            class CBA_Extended_EventHandlers: CBA_Extended_EventHandlers {};
-        };
-
 		author=AUTHOR;
-		// Dragging
-        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
-        ace_dragging_dragPosition[] = {0, 1.5, 0.5};  // Offset of the model from the body while dragging (same as attachTo) (default: [0, 1.5, 0])
-        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo) (default: 0)
-        // Carrying
-        ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
-        ace_dragging_carryPosition[] = {0, 1.5, 0.5};  // Offset of the model from the body while dragging (same as attachTo) (default: [0, 1, 1])
-        ace_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo) (default: 0)
-		// ACE Misc Stuff
-		ace_refuel_canReceive = 0;
-		ace_cargo_space = 0;
-		ace_cargo_hasCargo = 0;
-		ace_cookoff_probability = 0;
-
 	};
 	
 	class USCG_Stretcher: USCG_Stretcher_Base 
@@ -133,10 +114,9 @@ class cfgVehicles
 		armor = 1000000;
 		cargoGetInAction[] = {"GetInLow"};
 		cargoGetOutAction[] = {"GetOutLow"};
-		cargoAction[] = {"uscg_vehicleanim_stretcher"}; //"passenger_injured_medevac_truck01","passenger_injured_medevac_truck02","passenger_injured_medevac_truck03"
+		cargoAction[] = {"uscg_vehicleanim_stretcher"};
 		ejectDeadCargo = 0;
 		cargoProxyIndexes[] = {1};
-		//editorCategory = "EdCat_Things";
 		editorSubcategory = "EdSubcat_Military";
 		cost = 0;
 		displayName = "Stretcher";

@@ -5,7 +5,7 @@ class CfgPatches
 		units[] = {"USCG_Basket"};
 		weapons[] = {""};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Boat_F", "USCG_Stretcher"};
+		requiredAddons[] = {"A3_Boat_F", "USCG_Stretcher", "USCG_Common"};
 	};
 };
 
@@ -69,17 +69,15 @@ class cfgVehicles
 		armor = 1000000;
 		cargoGetInAction[] = {"GetInLow"};
 		cargoGetOutAction[] = {"GetOutLow"};
-		cargoAction[] = {"uscg_vehicleanim_stretcher"}; //"passenger_injured_medevac_truck01","passenger_injured_medevac_truck02","passenger_injured_medevac_truck03"
+		cargoAction[] = {"uscg_vehicleanim_stretcher"};
 		ejectDeadCargo = 0;
 		cargoProxyIndexes[] = {1};
-		//editorCategory = "EdCat_Things";
 		editorSubcategory = "EdSubcat_Military";
 		cost = 0;
 		displayName = "Basket";
 		hasDriver = 0;
 		hasGunner = 0;
 		hasCommander = 0;
-		// Change these paths
 		picture = "\USCG_Basket\UI\basket_ca.paa";
 		icon = "\USCG_Basket\UI\basket_ca.paa";
 		editorPreview = "\USCG_Basket\UI\basket_ca.paa";

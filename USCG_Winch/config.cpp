@@ -6,12 +6,12 @@ class cfgPatches
 		{
 			""
 		};
-		weapons[] = 
+		weapons[] =
 		{
 			"USCG_static_object_winch"
 		};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Characters_F"};
+		requiredAddons[] = {"A3_Data_F_AoW_Loadorder", "USCG_Common"};
 	};
 };
 

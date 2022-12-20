@@ -1,0 +1,2 @@
+python classGenerator.py
+exit

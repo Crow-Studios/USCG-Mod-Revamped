@@ -5,6 +5,12 @@
                             postInit=0;
                         };
                     // functions
+                        class cbaInit 
+                        {
+                            file="\USCG_Common\functions\fn_cbaInit.sqf";
+                            postInit=0;
+                        };
+                    // functions
                         class deleteHook 
                         {
                             file="\USCG_Common\functions\fn_deleteHook.sqf";
@@ -26,6 +32,12 @@
                         class handleRopeDetach 
                         {
                             file="\USCG_Common\functions\fn_handleRopeDetach.sqf";
+                            postInit=0;
+                        };
+                    // functions
+                        class isRescueVehicle 
+                        {
+                            file="\USCG_Common\functions\fn_isRescueVehicle.sqf";
                             postInit=0;
                         };
                     // functions
@@ -76,6 +88,18 @@
                             file="\USCG_Common\functions\ace\fn_ace_unloadStretcher.sqf";
                             postInit=0;
                         };
+                    // cba
+                        class cba_attachBasket 
+                        {
+                            file="\USCG_Common\functions\cba\fn_cba_attachBasket.sqf";
+                            postInit=0;
+                        };
+                    // cba
+                        class cba_attachStretcher 
+                        {
+                            file="\USCG_Common\functions\cba\fn_cba_attachStretcher.sqf";
+                            postInit=0;
+                        };
                     // equipment
                         class attachStretcher 
                         {
@@ -92,6 +116,12 @@
                         class canMoveToHoist 
                         {
                             file="\USCG_Common\functions\equipment\fn_canMoveToHoist.sqf";
+                            postInit=0;
+                        };
+                    // equipment
+                        class canTransfer 
+                        {
+                            file="\USCG_Common\functions\equipment\fn_canTransfer.sqf";
                             postInit=0;
                         };
                     // equipment
@@ -182,6 +212,12 @@
                         class unloadStretcher 
                         {
                             file="\USCG_Common\functions\equipment\fn_unloadStretcher.sqf";
+                            postInit=0;
+                        };
+                    // hatchet
+                        class debugStuff 
+                        {
+                            file="\USCG_Common\functions\hatchet\fn_debugStuff.sqf";
                             postInit=0;
                         };
                     

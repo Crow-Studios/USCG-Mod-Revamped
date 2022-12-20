@@ -2,17 +2,17 @@ class cfgPatches
 {
 	class USCG_Throwables
 	{
-		units[] = 
+		units[] =
 		{
 			""
 		};
-		weapons[] = 
+		weapons[] =
 		{
 			"USCG_static_item_flare_1",
 			"USCG_static_item_flare_2"
 		};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"A3_Characters_F", "A3_Data_F"};
+		requiredAddons[] = {"A3_Data_F_AoW_Loadorder", "USCG_Common"};
 	};
 };
 

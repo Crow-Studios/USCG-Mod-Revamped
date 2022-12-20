@@ -3,9 +3,12 @@ import sys
 
 cur_dir = os.getcwd()
 
+print(cur_dir)
+
 def generate_classes(file_name):
         directories = os.walk(f"{cur_dir}/{file_name}")
         dirpath, dirnames, filenames = next(directories)
+        print(directories)
         # clear text file first
         with open("Output.txt",'r+') as output:
             output.truncate(0)
@@ -24,7 +27,7 @@ def generate_classes(file_name):
                     output.write("// functions")
                     output.write(string)
                     
-        for I in range(2):
+        for I in range(len(dirnames)):
 
             for filename_sub in os.listdir(f"{cur_dir}/{file_name}/{dirnames[I]}"):
                 if filename_sub.endswith(".sqf"):
@@ -43,5 +46,6 @@ def generate_classes(file_name):
         print("end")
 
 generate_classes(sys.argv[1])
+
 
 # Made by silence and crimzon, really quickly thrown together because it was a tiny python project to learn stuff
