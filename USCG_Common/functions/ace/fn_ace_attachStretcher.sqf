@@ -12,7 +12,7 @@ _actionInfo = [
 
 		if (_stretcher isEqualTo objNull) exitWith {};
 		
-		if (_target distance _stretcher <= 2) exitWith {
+		if (_target distance2D _stretcher <= 2) exitWith {
 			_target setVariable ["uscg_mod_stretcher", _stretcher, true];
 			[ _target, _stretcher, [0, 0, 0.05] ] call uscg_mod_fnc_attachStretcher;
 		};
