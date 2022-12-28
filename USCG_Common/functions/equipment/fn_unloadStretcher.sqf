@@ -11,7 +11,7 @@ params ["_vehicle", "_vehicleLoad"];
         
 		_vehicle setVariable ["uscg_mod_stretcherLoaded", false, true];
 
-		_vehicleLoad setPos (_vehicle modelToWorld [3,2,-1]);
+		_vehicleLoad setPosATL (_vehicle modelToWorld [3,2,-1]);
 
 		detach _vehicleLoad;
 
