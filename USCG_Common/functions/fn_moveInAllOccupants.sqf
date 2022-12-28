@@ -40,7 +40,7 @@ emptySpots = [];
 	private _unit = _x;
 	private _handle = [_unit, _vehicle] spawn { // fix locality issues?
 		params ["_unit", "_vehicle"];
-		_unit setPos getPos _vehicle;
+		_unit setPosATL [0, 0, 0];
 		_unit assignAsCargo _vehicle;
 		[_unit, [_vehicle, (emptySpots select 0), true]] remoteExec ["moveInCargo", _unit]; // Please for the love of all that is holy... work
 		diag_log format["%1 was moved into %2 by moveAllOccupants", _unit, _vehicle];
