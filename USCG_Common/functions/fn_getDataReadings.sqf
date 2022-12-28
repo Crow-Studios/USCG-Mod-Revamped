@@ -26,6 +26,6 @@ if (_basketDeployed) then {
 
 private _objPosition = getPosATL _unit;
 
-private _meters = _objPosition select 2;
+private _meters = vehicle _unit distance [_objPosition select 0,_objPosition select 1,0];
 
 titleText format [["This helicopter is approximately %1m away from the ground. \n \n \n There are %2 units on the rescue equipment (hook + equipment). \n \n \n The ropes length is approximately %3.", _meters, _crewCount, ( ropeLength (ropes vehicle _unit select 0) )], "PLAIN DOWN"];
