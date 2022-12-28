@@ -21,7 +21,7 @@ if (vehicle _unit != _unit) exitWith {};
         private _pos = getPosATL _unit;
 
         private _vehicle = _vehicle createVehicle _pos;
-        _vehicle setPos _pos;
+        _vehicle setPosATL _pos;
         _vehicle setDir getDir _unit;
         _vehicle setPos (_vehicle modelToWorld [1,0.5,0]);
     },
