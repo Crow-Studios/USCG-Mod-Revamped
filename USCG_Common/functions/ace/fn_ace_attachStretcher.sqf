@@ -24,9 +24,11 @@ _actionInfo = [
 		private _stretcherDeployed = _target getVariable ["uscg_mod_stretcherDeployed", false];
 		private _stretcherAttached = _target getVariable ["uscg_mod_stretcherAttached", false];
 
+		private _basketDeployed = _target getVariable ["uscg_mod_basketDeployed", false];
+
 		private _stretcher = _target getVariable ["uscg_mod_stretcher", objNull];
 
-		(!_stretcherAttached)
+		(!_stretcherAttached) && {!_basketDeployed}
 	}
 ];
 
